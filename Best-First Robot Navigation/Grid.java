@@ -40,9 +40,13 @@ public class Grid{
     }
   }
 
-  //accessor for grid
+  //accessors
   public char[][] getGrid(){
     return this.grid;
+  }
+
+  public int getSize(){
+    return size;
   }
 
 
