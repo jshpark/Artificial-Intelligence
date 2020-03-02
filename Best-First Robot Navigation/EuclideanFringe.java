@@ -89,6 +89,6 @@ public class EuclideanFringe{
     for (Node node : actualPath){
       pathCost += node.getWeight();
     }
-    System.out.println("Total path cost for Manhattan Distance: " + pathCost);
+    System.out.println("Total path cost for Euclidean Distance: " + pathCost);
   }
 }
