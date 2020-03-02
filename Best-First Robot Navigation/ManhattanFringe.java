@@ -1,7 +1,7 @@
 import java.util.*;
 import java.lang.Math;
 
-public class EuclideanFringe{
+public class ManhattanFringe{
   private Grid grid;
   private Node[][] nodeGrid;
   private char[][] newGrid;
@@ -11,7 +11,7 @@ public class EuclideanFringe{
   private ArrayList<Node> actualPath = new ArrayList<>();
 
 
-  public EuclideanFringe(Grid grid){
+  public ManhattanFringe(Grid grid){
     this.grid = grid;
     newGrid = grid.getGrid();
     parser = new Parser(this.grid);
@@ -67,7 +67,7 @@ public class EuclideanFringe{
     for (Node neighbor : parser.getNeighbors(node)){
       int xCurr = neighbor.getCoordinate()[0];
       int yCurr = neighbor.getCoordinate()[1];
-      neighbor.setWeight(Math.sqrt(Math.pow(xGoal - xCurr, 2) + Math.pow(yGoal - yCurr, 2)));
+      neighbor.setWeight(Math.abs(xGoal - xCurr) + Math.abs(yGoal - yCurr));
 
       neighbors.add(neighbor);
     }

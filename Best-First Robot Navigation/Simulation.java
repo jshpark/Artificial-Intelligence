@@ -1,7 +1,6 @@
 import java.util.*;
 
 public class Simulation{
-  private Tree tree;
   private int choice;
   private Grid grid;
 
@@ -31,10 +30,16 @@ public class Simulation{
       case 1:
       EuclideanFringe euclidean = new EuclideanFringe(grid);
       euclidean.traverse();
+      euclidean.getOptimalPath();
       euclidean.printGrid();
+      euclidean.printWeight();
       break;
       case 2:
-
+      ManhattanFringe manhattan = new ManhattanFringe(grid);
+      manhattan.traverse();
+      manhattan.getOptimalPath();
+      manhattan.printGrid();
+      manhattan.printWeight();
       break;
       case 3:
 
