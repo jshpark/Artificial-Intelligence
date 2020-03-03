@@ -18,3 +18,9 @@ To execute, you must run
 java main xxx.txt
 ```
 where ```xxx.txt``` is the input file.
+
+## Student Information
+
+John Park
+Sanpark@chapman.edu
+2298927
