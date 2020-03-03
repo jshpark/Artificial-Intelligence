@@ -42,10 +42,18 @@ public class Simulation{
       manhattan.printWeight();
       break;
       case 3:
-
+      AStarEucDistan aStarEuclidean = new AStarEucDistan(grid);
+      aStarEuclidean.traverse();
+      aStarEuclidean.getOptimalPath();
+      aStarEuclidean.printGrid();
+      aStarEuclidean.printWeight();
       break;
       case 4:
-
+      AStarManDistan aStarManhattan = new AStarManDistan(grid);
+      aStarManhattan.traverse();
+      aStarManhattan.getOptimalPath();
+      aStarManhattan.printGrid();
+      aStarManhattan.printWeight();
       break;
       default:
       System.out.println("Invalid choice entered. System will break.");

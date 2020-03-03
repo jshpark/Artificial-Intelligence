@@ -6,6 +6,8 @@ public class EuclideanFringe{
   private Node[][] nodeGrid;
   private char[][] newGrid;
   private Parser parser;
+  private int stepsTaken = 0;
+  private int nodesSearched = 1;
   private PriorityQueue<Node> nodeQueue = new PriorityQueue<>();
   private ArrayList<Node> nodePath = new ArrayList<>();
   private ArrayList<Node> actualPath = new ArrayList<>();
@@ -34,6 +36,7 @@ public class EuclideanFringe{
           if (!neighbor.getVisited()){
             neighbor.setVisited(true);
             neighbor.setParent(currentNode);
+            nodesSearched++;
             nodeQueue.add(neighbor);
           }
         }
@@ -78,7 +81,7 @@ public class EuclideanFringe{
   public void printGrid(){
     for (int i = 0; i < grid.getSize(); ++i){
       for (int j = 0; j < grid.getSize(); ++j){
-        System.out.print(newGrid[i][j]);
+        System.out.print(newGrid[i][j] + " ");
       }
       System.out.println();
     }
@@ -88,7 +91,10 @@ public class EuclideanFringe{
     double pathCost = 0.0;
     for (Node node : actualPath){
       pathCost += node.getWeight();
+      stepsTaken++;
     }
-    System.out.println("Total path cost for Euclidean Distance: " + pathCost);
+    System.out.println("Total path cost: " + pathCost);
+    System.out.println("Total steps taken: " + stepsTaken);
+    System.out.println("Total numbers of nodes in search tree: " + nodesSearched);
   }
 }

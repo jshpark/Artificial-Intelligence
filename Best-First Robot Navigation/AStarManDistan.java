@@ -1,19 +1,20 @@
 import java.util.*;
 import java.lang.Math;
 
-public class ManhattanFringe{
+public class AStarManDistan{
   private Grid grid;
   private Node[][] nodeGrid;
   private char[][] newGrid;
   private Parser parser;
   private int stepsTaken = 0;
+  private int exactPathCost = 0;
   private int nodesSearched = 1;
   private PriorityQueue<Node> nodeQueue = new PriorityQueue<>();
   private ArrayList<Node> nodePath = new ArrayList<>();
   private ArrayList<Node> actualPath = new ArrayList<>();
 
 
-  public ManhattanFringe(Grid grid){
+  public AStarManDistan(Grid grid){
     this.grid = grid;
     newGrid = grid.getGrid();
     parser = new Parser(this.grid);
@@ -70,7 +71,7 @@ public class ManhattanFringe{
     for (Node neighbor : parser.getNeighbors(node)){
       int xCurr = neighbor.getCoordinate()[0];
       int yCurr = neighbor.getCoordinate()[1];
-      neighbor.setWeight(Math.abs(xGoal - xCurr) + Math.abs(yGoal - yCurr));
+      neighbor.setWeight(Math.abs(xGoal - xCurr) + Math.abs(yGoal - yCurr) + ++exactPathCost);
 
       neighbors.add(neighbor);
     }
@@ -87,7 +88,6 @@ public class ManhattanFringe{
     }
   }
 
-//print weight
   public void printWeight(){
     double pathCost = 0.0;
     for (Node node : actualPath){
